@@ -1,0 +1,1640 @@
+
+    1) 	npm info express version
+
+    2)	npm i -g npm-check-updates
+    
+    3)	npm-check-updates -u
+    
+    4)	npm install	
+    
+
+M - MongoDB
+E - Express
+A - Angular
+N - Node
+
+
+ETAPA 1 - INTRODUÇÃO
+
+1.1 - INSTALAÇÃO DO NODE.JS
+
+    DIRETÓRIO DE INSTALAÇÃO
+
+        C:\Program Files\nodejs\
+
+--------------------------------------------------------------------------------------------
+                                
+ETAPA 2	-	EXPRESS: FRAMEWORK WEB PARA NODE.JS
+
+2.1	- EXPRESS e seu papel
+
+      MIDDLEWARES são funções que lidam com requisições.
+      Cada MIDDLEWARE passará o controle
+
+
+2.2 ESTRUTURA DO PROJETO E PACKAGE.JSON
+
+    1) Criando o diretório 
+                                
+        C:\projetoSere4\server.js
+
+                                    
+    ESTRUTURA DO PROJETO
+
+    layersGeo (projetoSere4)
+    
+        |
+        |
+        |-----> app
+                    --> controllers : controladores chamados pelas rotas da aplicação
+
+                    --> models : models que representam o domínio do problema
+                                                    
+                    --> routes: rotas da aplicação
+
+                    --> views : views template engine
+
+                    ---->  config --> configuração do EXPRESS, Banco de Dados....etc
+
+                    ---->  public --> todos os arquivos acessíveis diretamente pelo navegador	
+
+
+    2) Criar o arquivo 'PACKAGE.JSON' na raiz do projeto
+
+
+        3) Digita-se no console:
+            
+            npm init....(é só seguir o passo a passo)
+
+        4) Quando o assitente, chegar ao final o arquivo 'PACKAGE.JSON' é criado
+
+
+
+2.3 - INSTALANDO O EXPRESS ATRAVÉS DO NPM
+
+      Executei o comando abaixo dentro do seguinte diretório: 
+
+        C:\projetoSere4\
+                                
+          já executei os seguintes comandos: npm init
+
+            npm install express --save
+
+            INSTALOU:
+                express": "^4.8.8"
+                
+                ejs02.5.6 node_modules\ejs
+
+
+2.4	-	CRIANDO O MÓDULO DE CONFIGURAÇÃO DO EXPRESS
+
+        Criando o arquivo 
+                                
+        C:\projetoSere4\config\express.js
+
+            O padrão COMMONJS (O Node.js utiliza esse padrão para a criação de módulos)
+
+                                
+		MODIFICANDO O SERVER.JS
+
+            c:\projetoSere4\server.js
+
+        OBSERVAÇÃO: Quando executo o seguinte comando dentro do projeto:
+
+            node server.js
+
+            Tenho um ERRO de PORT --> port argument must be >= 0 and < 65536
+
+            Nesse ponto ainda não dá pra rodar a aplicação. Falta realizar alguns ajustes para o funcionamento correto do ExpressJS
+
+
+
+2.5 -	ETENTEDENDO VARIÁVESI DE AMBIENTE E MIDDLEWARES
+
+        OBSERVAÇÃO: Configurando a porta da aplicação que estava faltando no código anterior.
+
+
+           VARIÁVEIS DE AMBIENTE
+
+            Alterando o arquivo 
+            
+              c:\projetoSere4\config\express.js
+
+            Inserindo uma variável de ambiente através de 'app.set'
+
+
+            O MIDDLEWARE express.static
+
+                Alterando o arquivo 
+                                    
+                    c:\projetoSere4\config\express.js
+                                    
+                Agora, que configuramos nosso SERVIDOR para compartilhar recursos estáticos, vamos criar a página:
+
+                    public/index.html
+
+                       * OBSERVAÇÃO IMPORTANTE:
+
+                          O arquivo 'index.html' foi criado, pois ele não veio junto ao pacote baixado pelo GITHUB.
+
+                       ** OUTRA OBSERVAÇÃO:
+
+                           Na realidade o arquivo 'index.html' foi movido para a pasta -> 
+                                        
+                            c:\projetoSere4\app\views
+                            E renomeado para 'index.ejs'
+
+
+2.6 - View e Template Engine
+
+    O ENGINE EJS é bem similiar ao HTML
+                                    
+    Instalando a ENGINE EJS na raíz do nosso projeto c:\projetoSere4\
+
+        npm install ejs --save
+    
+    OUTRA OBSERVAÇÃO: 						
+    
+    MOVENDO E RENOMEANDO O ARQUIVO public\index.html para a pasta app\views\index.ejs
+
+
+        Antes de mover  e renomear o arquivo "..\public\index.html" para a pasta "app\views\index.ejs" se faz necessário tornar público este caminho.
+
+        E para fazer isso, vamos utilizar ROTAS através do ExpressJS.
+
+
+2.7 - CONFIGURANDO ROTAS
+
+        Para configuramos uma ROTA de acesso para a nosa 'view' [INDEX.EJS] utilizaremos um módulo em separado, o módulo 'routes'. 
+                                
+            Criando o arquivo:
+
+                c:\projetoSere4\app\routes\home.js
+
+            Se faz necessário importar o módulo dentro do arquivo:
+
+                ../config/express.js
+
+
+
+
+2.8 - CRIANDO CONTROLLERS ( No Modelo MVC, o Controller é a ponte de ligação entre a nossa página (VIEW) e nossos dados	(MODEL) )
+                            
+    app/controllers/home.js
+
+
+    LIGANDO A ROTA AO CONTROLLER
+                            
+        app/routes/home.js	
+
+        Adicionando mais um rota no arquivo 'home.js'
+
+
+           TESTANDO A APLICAÇÃO:
+
+            http://localhost:3000
+
+                OU
+
+            http://localhost:3000/index
+
+
+                  
+ETAPA 2
+
+    npm install nodemon -g
+
+    Após a execução do comando acima, foram criados as seguintes pastas:
+
+        c:\users\DanielPC\AppData\Roaming\npm\node_modules\nodemon\bin\nodemon.js
+
+
+    O comando a seguir, serve para subir o servidor.
+                                
+        nodemon server											
+
+
+
+    AQUI COMEÇA O PROJETO DO CAPÍTULO 2.9 ONDE FAREMOS O USO DO: EXPRESS-LOAD
+
+        ESTAPA 2 O EXPRESS possui uma alternativa para o carregamento de nossos MODELS, CONTROLLERS e ROUTES, diminuindo drasticamente o uso da função REQUIRE().
+                               É o que veremos a seguir no ETAPA 2.9
+
+
+    CAPÍTULO 2
+
+        2.9	- Carregando dependências com o express-load
+
+        Com o uso do express-load, evita-se chamadas à função REQUIRE dentro dos CONTROLLERS e ROUTES.
+
+            1) Observação: o diretório mundou 
+                                
+                de: 				      
+                                    
+                    c:\estudoNode\mean  
+                                    
+                para:
+
+                    c:\projetoSere4
+                                            
+                                    
+                npm install express-load --save
+
+                    Foi instalado o "express-load": "^1.1.15"
+
+                                    
+                        2) Importando o módulo dentro do nosso arquivo de    configuração do Express:
+
+                            config/express.js
+
+                            OBSERVAÇÃO: Não podemos de esquecer de REMOVER o require('../app/routes/home');
+
+                        
+                        3) Substituindo a função home(app) pela função load()
+
+
+                  
+    CAPÍTULO 2				
+
+        Modificando o arquivos de ROTAS:
+
+            app/routes/home.js [Esse arquivo não vai mais fazer uso da função require para carregar o controller]
+
+        ORDEM DE CARREGAMENTO:
+                                    
+           models -> controllers -> routes
+
+        Aproveitando para deixar somente a rota "/" e removendo a rota "/index"
+
+
+
+2.10 - LISTANDO LAYERS
+
+        No Express, as URLs nós chamamos de rota ->  http://localhost:3000/layers
+
+        Criando o arquivo:
+
+        app/routes/LAYER.js ou (layers.js)
+
+        http://localhost:3000/layers
+
+
+CRIANDO O ARQUIVO CONTROLLER
+
+    app/controllers/layer.js
+                                            
+
+    O QUE EU REALMENTE PRECISO FAZER!!!!
+                    
+
+2.11 - UM POUCO SOBRE REST API
+
+       Nosso projeto terá como um dos recursos principais, uma entidade denomidada: /layers
+
+       Por hora estou trabalhando com dados estático, mais adiante irei implementar esses mesmos dados utilizando um banco de dados: 
+
+            Ex: MongoDB, MySQL ou PostgreSQL (banco que foi pedido)
+
+        REST API (Representation State Transfer API)
+
+            APP.GET
+            APP.PUT
+            APP.POST
+            APP.DELETE
+                                
+
+2.12 - Retornando o layer da lista 				
+
+        Usando REST (Representational State Transfer)								
+                                            
+        Criando uma nova rota para acessar o layer individualmente.
+        Não queremos a lista completa de layers, queremos somente um elemento da lista.
+        E iremos buscá-lo atráves do seu ID.
+
+            alterando o arquivo 
+            
+            C:\projetoSere6\app\routes\layer.js
+
+        
+        Consideração sobre os verbos DELETE e PUT
+
+            Vamos instalar os modulos middleware method-override e body-parser
+                            
+                Instalando na pasta raíz do projeto
+
+                    C:\projetoSere6
+
+                        npm install body-parser method-override --save
+
+                            INSTALOU: method-override02.3.7
+                                      body-parser01.17.1
+            
+                Depois da instalação, necessita-se ativar esses middlewares na configuração do Express  
+
+                OBSERVAÇÃO:  Atenção! A ativação desses MIDDLEWARES precisam vir antes do CARREGAMENTO DAS ROTAS pelo EXPRESS
+
+Até aqui vimos o SERVER-SIDE
+
+
+server.js
+
+package.json
+
+config/express.js
+
+public/index.html
+
+app/views/index.ejs
+
+app/routes/home.js
+
+app/controllers/home.js
+
+app/controllers/layer.js
+
+app/routes/layer.js
+
+
+As linhas abaixo, são comandos que executei para instalar e atualizar as libs utilizadas no projeto
+
+    1) 	npm info express version
+
+    2)	npm i -g npm-check-updates
+    
+    3)	npm-check-updates -u
+    
+    4)	npm install	
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+ESTAPA 3 - BOWER - Gerenciador de dependências Front-End
+
+    O Bower pode-se dizer, tem a mesma função do NPM, porém ele e voltado para o Front-End enquanto o NPM é utilizado para BACK-END.
+
+        Instalando o BOWER:
+
+            npm install bower -g
+
+
+3.2 - BOWER.JSON e nossas dependências
+
+        Criando o arquivo bower.json dentro da pasta raíz do projeto: 
+
+            c:\projetoSere44
+
+                bower init
+
+            Após executar o comando, acima o arquivo 'bower.json' será criado.									
+
+
+3.3	- BAIXANDO DEPENDÊNCIAS FRONT-END
+
+        Nosso projeto vai usar duas bibliotecas: AngulasJS e Bootstrap (uma biblioteca CSS)
+
+        Instalando a biblioteca angular em -> c:\projetoSere4
+
+            bower install angular --save
+
+                instalou o angular#1.3
+
+
+        OBSERVAÇÃO: Antes de instalarmos o BOWER, temos que ter o GIT instalado.
+
+        Instalando o git:
+
+        Pasta de instalação: C:\Program Files\Git
+
+
+3.4	- ALTERANDO A PASTA DESTINO COM .BOWERRC
+
+        Criando um arquivo oculto chamado '.bowerrc' dentro da raiz do projeto 						
+
+           Aqui tem um pulo do gato....rsrsrsr
+
+                Se faz necessário apagar o diretório: 	
+                                        
+                   'bower_componenets'
+
+                E em seguida baixamos novamente as dependências do projeto:
+
+                    bower install
+
+                Após executar o comando acima, a seguinte pasta foi criada:
+
+                   ../public/vendor
+
+                                
+                Realizado os passos acima, temos o necessário para desenvolvermos nossa interface utilizando o framework: ANGULARJS
+
+    1) 	npm info express version
+
+    2)	npm i -g npm-check-updates
+    
+    3)	npm-check-updates -u
+    
+    4)	npm install	
+
+*******************************************************************
+
+
+ETAPA 4 - AngularJS - O Framework MVC da Google [framework mvc client-side]
+
+          Outras pcções de Frameworks  MVC client-side: BackBone, Ember, Can
+
+          O Framework escolhido para se trababar no SERVER-CLIENT foi o AngularJS
+
+4.1 - UM VELHO CONHECIDO - DOM (DOCUMENT OBJETC MODEL)
+
+        Uma biblioteca bastante utilizida atualmente para a manipulação de DOM (DOCUMENT OBJECT MODEL) é a JQuery
+
+
+4.3 - CARACTERISTICAS DO AngularJS
+
+        O AngularJS é um framework CLIENT-SIDE que trabalha com tecnologias já estabelecidads: HTMLS, CSS e JavaScript
+
+        Trabalhar com as seguintes tecnologias: CSS, JavaScript e HTML
+
+        Foco: SPA - Single Page Application - Não recarrega a página durante seu uso, por isso já carrega todo JavaScript e CSS que precisa.
+
+
+
+4.4 - PREPARANDO O AMBIENTE
+
+app/views/index.ejs -----> app/views/index.ejs.old
+
+app/controllers/home.js -----> app/controllers/home.js.old
+
+app/routes/home.js -----> app/routes/home.js.old
+
+Obs: Feito as alterações nos nomes dos arquivos, temos a certeza que o servidor Express só nos enviará dados,deixando a parte dinâmica da views a encargo do AngularJS
+
+../public/index.html
+
+
+CONTINUANDO PREPARANDO O AMBIENTE
+
+    Criando uma página simples, pra ver como o AngularJS funciona.
+
+        c:\projetoSere4\public\index.html
+
+
+4.5 - HABIBLITANDO O ANGULARJS EM NOSSA PÁGINA
+
+    Depois da página criada, vamos ativar o AngularJS nessa página que foi criada.
+
+    Importa-se o angular.js á página criada....../public/index.html
+
+    Só importar o angular.js não é suficiente, temos que inserir a diretiva do angular....ng-app ao arquivo /public/index.html.
+
+
+
+
+4.6 - NOSSO PRIMEIRO MÓDULO COM ANGULARJS
+
+ Criando o módulo:
+
+    C:\projetoSere4\public\js\main.js
+
+
+Após a criação do módulo, vamos importá-lo em --> public/index.html
+
+    Editando o arquivo:
+
+     C:\projetoSere4\public\js\main.js
+
+        Repare que o nome do módulo é o mesmo nome ou valor da diretiva 'ng-app' da nossa página 'index.html'.
+
+        Próximo passo: - Associar algum dado à nossa 'view'
+
+
+
+4.7 - ANGULAR EXPRESSION (AE) é representado por  "{{ }}"
+
+        Usaremos (AE) para que a informação varie toda vez que o botão 'NOVO' for clicado
+
+
+       Se o AngularJS é um Framework MVC, quem é o responsável por disponibiliar os dados para a VIEW?
+
+        RESPOSTA -> O CONTROLLER
+
+
+4.8 - Nosso Primeiro Controller
+
+Essse controller é que vai ser o responsável por mostrar o 'dado' na view.
+No nosso caso, o número de vezes que o botão 'NOVO' vai sendo clicado
+
+
+A diretiva 'ng-controller'
+
+    Criando o controller:
+
+        C:\projetoSere4\public\js\controllers\LayersController.js
+
+
+    Após o controller ser criado, vamos importá-lo para o nosso módulo principal em:
+
+        C:\projetoSere4\public\index.html
+
+    Observação: A associação  do 'dado'	 ainda não está funcionando.
+
+
+4.9	- $SCOPE: A COLA ENTRE O CONTROLLER E VIEW
+
+    Observação: Necessita-se associar o dado total ao ESCOPO do nosso CONTROLLER, no nosso caso, LayersController.js
+
+        A associação é feita através do OBJETO $SCOPE.
+
+
+    INJEÇÃO DE DEPENDÊNCIA
+
+    Adiconando o OBJETO $SCOPE na função que define nosso CONTROLLER.
+
+        $scope é um POJO (Plain Old JavaScript Objetc)
+
+    
+    C:\projetoSere4\public\js\controllers\LayersController.js
+
+    Substituindo a declaração da variável 'total' para '$scope.total'
+
+
+    Vamos subir a aplicação:
+
+        http://localhost:3000
+
+    
+    OBSERVAÇÃO: A Página é exibida com uma lista de layers pré-cadastrados e com um botão 'NOVO' adicionado a página.
+
+
+    Já possuímos a 'view' e o 'controller', agora precisamos do model, para completar o modelo MVC
+
+
+4.10 -	AngularJS e o MODEL do MVC
+
+
+4.11 -	EXECUTANDO AÇÕES NO CONTROLLER ATRAVÉS DE DIRETIVA
+
+            Incrementando o total exibido através da diretiva NG-CLICK
+
+                1) altera-se o arquivo 'public/index.html'
+
+                2) insere a diretiva 'ng-click' no botão
+            
+                    no nosso caso, a directiva 'ng-click' tem como valor, a chamada de uma função, no nosso caso, a função 'incrementa()'
+
+                3) Para testar acesse:
+
+                    http://localhost:3000
+
+                OBSERVAÇÃO: A Página é exibida com uma lista de layers pré-cadastrados e com um botão 'NOVO' adicionado a página.
+                Cada vez que o botão novo é clicado, um contador vai exbibindo a quantidade de vez que o botão foi clicado.
+
+
+
+4.13 -	SPA - SINGLE PAGE APPLICATION E O NOSSO PROJETO
+
+        Até aqui temos somente uma VIEW, nossa página INDEX.HTML
+
+        Além dessa página outras duas serão necessárias:
+
+            Uma página que vai LISTAR OS LAYERS;
+
+            E outra que vai EXIBIR o LAYER selecionado dessa LISTA;
+
+
+4.14 - O MÓDULO NGROUTE  - o módulo de ROTAS do ANGULARJS (SISTEMA DE ROTAS)
+
+                                    IMPORTANTE:
+
+                                        O SISTEMA DE ROTAS do AngularJS só funciona se a aplicação RODAR em um SERVIDOR WEB.
+
+
+                                        O NGROUTE visa blindar o DESENVOLVEDOR da manipulação do DOM diretamente.
+
+                                        1) Instalando o ngRoute
+
+                                            bower install angular-route --save
+
+                                            instalou "angular-route": "^1.7.5"
+
+
+                                        2) Importando o script em nosa página 'public/index.html', imediatamente após a importação do script do AngularJS
+
+                                        3) Essas alterações ainda não são o suficiente, precisamos tornar nosso módulo principal 'projetosere' ciente deste módulo.
+
+                                           Para isso, vamos editar nosso arquivo:
+
+                                                   Adicionando o módulo ngRoute com sua dependência.
+
+                                                   C:\projetoSere4\public\js\main.js
+
+
+
+                                        4)	Para configurar as rotas, tem que alterar o arquivo 'public/index.html'
+
+                                                Removendo a diretiva NG-CONTROLLER de <BODY ...>
+
+                                                A remoção se faz necessária porque a associação do CONTROLLER será feita através da configuração das ROTAS.
+                                                Isso permite que parciais possam utilizar controllers diferentes de acordo com quem as usa.
+
+Página 68 / 86-381
+
+                        CAPÍTULO 4
+
+                                4.15 - CRIANDO VIEWS PARCIAIS
+
+                                        Já possuímos a nossa VIEW PRINCIPAL, a INDEX.HTML
+
+                                        Cria-se a pasta 'app/public/partials'
+
+
+                                        E dentro dessa pasta, guardaremos todas as nossas views parciais.
+
+                                            1)	Criar a view parcial, que será responsável pela listagem dos LAYERS.
+
+                                                    public/partials/layers.html
+
+                                            2)	Cria-se o arquivo 'app/public/partials/layer.html'
+
+                                            3)	Agora temos 3 arquivos:
+
+                                                    Página principal -> /public/index.html
+
+                                                    View parcial responsável pela listagem de layers -> /public/partials/layers.hml
+
+                                                    View parcial responsável pela exibição do layer selecionado na lista -> /public/partials/layer.html
+
+
+
+
+Página 69 / 87-381					4.16 - CONFIGURANDO ROTAS COM $routeProvider
+
+                                               Inserindo as rotas no módulo principal da aplicação, no nosso caso, no arquivo:
+
+                                                       C:\projetoSere4\public\js\main.js
+
+                                                       Injeta-se a FUNÇÃO config;
+                                                       Artefato INJETADO pelo AngularJS, o objeto $routeProvider
+
+                                                           ../public/js/main.js
+
+                                                   Faça o seguinte teste -> http://localhost:3000/#/layers
+
+
+                                                   CRIANDO MAIS UM ROTA!
+
+                                                   http://localhost:3000/index.html#/layer/2
+
+                                                   OBSERVAÇÃO: Para exibir qual objeto estamos acessando de acordo com o LAYERID informado. Precisamos CTRL+SHIFT+J
+
+                                                   Ainda não conseguimos obter um layer em específico. (VAI SER EXPLICADO NO PRÓXIMO CAPÍTULO)
+
+
+Página 	71 / 89-381
+                                    4.17 - O OBJETO $routeParams
+
+                                                Agora faremos a alteração devida para acessarmos um layer específico.
+
+                                                Criando o CONTROLLER -> public/js/controllers/LayerControllers.js
+
+                                                        Injetamos $routeParams ao CONTROLLER
+
+
+                                                Não podemos esquecer de IMPORTAR LayerControllers ao arquivo --> public/index.html
+
+                                                        Faça o seguinte teste -->  http://localhost:3000/#/layer/3
+
+                                                ADICIONANDO ROTA PADRÃO
+
+                                                    Caso um endereço não exista, cria-se uma ROTA padrão.
+
+                                                    Faz-se isso através da função:
+
+                                                        $routeProvider.otherwise({redirectTo: '/layers'});
+
+
+
+
+Página 74 / 92-381					CAPÍTULO 4
+
+                                    Como foi pedido no enunciado do teste, vamos ao uso do 
+                                    BOOTSTRAP.
+
+                                    4.18 -	BOOTSTRAP: VISUAL PROFISSOINAL EM NOSSAS VIEWS
+
+
+                                            Baixando o BOOTSTRAP através do Bower
+
+                                                PESQUISANDO VERSÕES DO BOOSTRAP
+
+                                                       bower search bootstrap
+
+                                                Depois executei: bower install bootstrap --save
+
+                                                    instalou a seguinte versão do bootstrap --> "bootstrap": "^4.1.3"
+                                                                                            --> jquery#3.1.1
+
+                                                ADICIONANDO O Bootstrap á nossas páginas.
+
+                                                    Importando o bootstrap a nossas páginas via index.html
+                                                    Foi adicionado a classe 'container' do BootStrap na tag BODY...
+
+                                                POR FIM, COMPLEMENTANDO A PÁGINA public/partials/layers.html
+
+                                                    Faça o seguinte teste -->  http://localhost:3000/#/layers
+
+
+
+
+Página 78 / 96-381
+                                       CAPÍTULO 4
+
+                                    Dando mais DINAMISMO em nossas páginas!
+
+                                       4.19 -	A DIRETIVA 'ng-repeat'
+
+                                            http://localhost:3000/#/layers
+
+
+                                            OBSERVAÇÃO: Criou-se uma lista de LAYERS em --> public/js/controllers/LayersController.js
+
+                                            Inseriu-se a DIRETIVA 'ng-repeat' dentro da <TR> que exibe os dados do layer.
+
+                                            Para ver se tudo caminhou de maneira correta, executamos o seguinte teste:
+
+                                                http://localhost:3000/#/layers
+
+
+
+Página 80 / 98-381
+                                    CAPÍTULO 4
+
+                                    Sei que isso não foi pedido, porém é uma funcionalidade a mais no projeto.
+
+                                    4.20 -	A DIRETIVA 'ng-model' E FILTRAGEM DA LISTA
+
+                                            Podemos filtrar nossa lista de layers, mas para isso, precisamos adicionar um 'INPUT'
+                                            em nossa view public/partials/layers.html
+
+
+                                                AQUI mexemos com TWO-WAY-DATABINDING -> lemos e gravamos em um propriedade do SCOPO DO CONTROLLER, para isso utilizamos a diretiva: NG-MODEL
+
+
+
+                                            Depois precisamos adicionar uma diretiva 'ng-model' ao INPUT
+
+                                            Agora, precisamos criar a propriedade no escopo de LayersController
+
+
+                                            Realizando alguns testes das APIs.
+
+                                                Subindo a aplicação:
+
+                                                    c:\projetoSere4>node server.js
+
+                                                No browser de sua preferência digite:
+
+                                                    http://localhost:3000/layers
+
+                                                    http://localhost:3000/#!/layers
+
+
+    1) 	npm info express version
+
+    2)	npm i -g npm-check-updates
+    
+    3)	npm-check-updates -u
+    
+    4)	npm install	
+
+
+ REVISÃO DO CAPÍTULO 4 (Data 06/02/2017)
+
+***************************************************
+NOVO                                              *
+                                                  *
+..public/index.html                               *
+..public/js/main.js                               *
+..public/js/controllers/LayersController.js     *
+..public/partials/layers.html                   *
+..public/partials/layer.html                    *
+..public/js/controllers/layerController.js      *
+                                                  *
+***************************************************
+
+
+
+***************************************
+ ANTIGO                               *
+                                      *
+ SERVER.JS                            *
+ EXPRESS.JS                           *
+ INDEX.OLD.JS                         *
+ layer.JS                           *
+ BOWER.JSON                           *
+ .BOWERRC                             *
+ INDEX.HTML                           *
+ MAIN.JS                              *
+ LayersController.JS                *
+ layerS.HTML                        *
+ layer.HTML                         *
+ layerCONTROLLER.JS                 *
+                                      *
+***************************************
+
+server.js
+package.json
+public\index.html
+config\express.js
+public\index.html
+app\controllers\layer.js
+app\routes\layer.js
+public\js\main.js
+public\js\controllers\LayersController.js
+public\partials\layers.html
+public\partials\layer.html
+public\js\controllers\layerController.js
+
+
+
+ NO PRÓXIMO CAPÍTULO IREMOS ADICIONAR FUNCIONALIDADES AO BOTÃO EXCLUIR, E FUNCIONALIDADE PARA SE EDITAR OS layerS.
+
+
+ *********************************************************************************************
+
+
+ *********************************************************************************************
+
+
+                         INTEGRAÇÃO ENTRE FRONT-END E BACK-END
+
+    1) 	npm info express version
+
+    2)	npm i -g npm-check-updates
+    
+    3)	npm-check-updates -u
+    
+    4)	npm install	
+
+
+Página 85 / 103-381
+
+    CAPÍTULO 5 - INTEGRANDO ANGULARJS COM EXPRESS
+
+
+        Integrando front-end e back-end. Realizando uma integração entre ambos.
+
+
+            CAPÍTULO 5
+
+            5.1	- O SERVIÇO HTTP
+
+                É um serviço responsável por REQUISIÇÕES AJAX.
+
+                O Sistema de INJEÇÃO DE DEPENDÊNCIA do AngularJS é baseado em NOMES.
+
+                Injetamos esse SERVIÇO em nosso CONTROLLER.
+
+
+            5.2	- Programação Assíncrona e CallBack Hell
+
+                O CallBack Hell é caracterizado pelo "Pyramid of DOOM" (Um jeito ruim de programar)
+
+                    Requisição Assíncrona -> Nunca sabemos quando ela será concluída de fato.
+
+                                             Invoca chamadas I.O não Bloqueantes, são executadas em PARALELO.
+
+                                             É uma boa prática passar funções assíncronas um CALLBACK
+
+                    Requisição Síncrona -> Invoca chamadas I.O Bloqueantes.
+
+
+
+Páginas 90 / 108-381
+
+    CAPÍTULO 5
+
+    5.3	- PROMISES: Combatendo o CallBack Hell
+
+
+        Uma promisse é um OBJETO que fornecerá o resultado futuro de uma ação.
+
+            Estados de um PROMISE:
+
+                * FULFILLED: quando a PROMISE é bem-sucedida
+
+                * REJECTED:  quando a PROMISE é rejeitada
+
+                * FAILED:    quando a PROMISE não é nem bem-sucedida e nem rejeitada
+
+
+                As FUNÇÕES: THEN e CATCH
+
+                A função THEN recebe como parâmetros CALLBACKS,
+                e é executada quando o STATUS da PROMISSE for FULLFILED.
+
+                Já a afunção CATCH é executado quando o STATUS da PROMISSE for REJECTED e FAILED
+
+
+
+Páginas 96 / 114-381
+    
+    CAPÍTULO 5
+
+    5.4 - OBTENEDO LAYERS COM O $HTTP
+
+             * Refatorando nosso Controller: public/js/controllers/LayersController.js
+
+            * Deixando de trabalhar com dados estáticos e obtê-los do nosso BACK-END feito com ExpressJS.
+
+                Refatorando a exbibição do total de layerS CADASTRADOS:
+
+                    C:\projetoSere5\public\partials\layers.html
+
+
+                    Em LayersController.js
+
+                        * Removendo a função '$scope.incrementa' e o atributo '$scopte.total'
+
+                        * Alterando o arquivo:
+
+                                C:\estudoMean\cap-05\public\partials\layers.html
+
+                                    utilizando data binding;
+
+
+Páginas 97 / 115-381
+    
+    CAPÍTULO 5
+
+    5.5 - MÓDULO ngResource: TRABALHANDO ALTO NÍVEL
+
+            Apesar de $HTTP ser funcional, o AngularJS possui um SERVIÇO de mais alto nível chamado $RESOURCE, específico para consumir REST ENDPOINTS.
+
+                A cola entre FRONT-END e BACK-END será feita utilizando NGRESOURCE
+
+
+                OBSERVAÇÃO: CONSUMINDO REST-ENDPOINTS ATRÁVÉS DO NGRESOURCE
+
+                #### Esse módulo NGRESOURCE, é responsável por consumir REST Endpoints. ####
+
+                    Instalando o módulo ngResouce através do bower.
+
+                        bower install angular-resouce --save
+
+                            INSTALOU: "angular-resource": "^1.7.5"
+
+                            Atualizando o angular:
+                                                            
+                                bower install angular --save
+
+                            Instalou:
+
+                                "angular": "^1.7.5"
+
+
+
+                    Depois de instalado, agora temos que importá-lo na nossa VIEW:
+
+                        C:\projetoSere5\public\index.html
+
+
+                    Após importá-lo, necessitamos indicar que nossa aplicação fará uso desse módulo, alteramos o arquivo:
+
+                        C:\projetoSere5\public\js\main.js
+
+
+                    Ainda não acabou, após a execução do passo acima, precisamos substituir o $HTTP por $RESOURCE no arquivo:
+
+                        public/js/controllers/LayersController.js
+
+                    OBSERVAÇÃO:
+                        
+                        ARQUIVOS ABERTOS OU ORDEM DOS ARQUIVOS:
+
+                            PACKAGE.JSON
+                            EXPRESS.JS
+                            SERVER.JS
+                            BOWER.JSON
+                            INDEX.EJS.OLD
+                            HOME.EJS.OLD
+                            LAYER.JS ----> CONTROLLERS
+
+                        ABRIR SOMENTE OS ARQUIVOS ABAIXO NA SEGUINTE ORDEM:
+
+                            NDEX.HTML
+                            MAIN.JS
+                            LAYERSCONTROLLER.JS
+                            LAYERS.HTML
+
+
+Página	98 / 116-381
+    
+    CAPÍTULO 5
+    [CONTINUANDO A Explicação das atividades acima. Falta alterar a lógica do nosso CONTROLLER, para que se faça uso do $RESOURCE]
+
+    5.6 - Consumindo REST Endpoints com $RESOURCE
+    
+            Já temos INJETADO o $RESOURCE em nosso CONTROLLER
+
+                O AngularJS possui um SERVIÇO de mais alto nível chamado $RESOURCE, específico para consumir REST ENDPOINTS.
+
+                    REFATORAMOS por completo ----> ..public/js/controllers/LayersController.js
+
+                        Criou-se a função -> buscaLayers()
+
+                        PRÓXIMO PASSO: IMPLEMENTAR A FUNCIONALIDADE DE REMOÇÃO DO 'LAYERS' DA NOSSA LISTA
+                            1) CRIA-SE A ROTA DE EXCLUSÃO
+                            2) DEPOIS DE CRIADA A ROTA DE EXCLUSÃO, INTEGRÁ-LA COM O ANGULAR.JS
+
+
+Página 101 / 119-381
+
+C:\projetoSere5\public\index.html
+C:\projetoSere5\public\js\main.js
+C:\projetoSere5\public\js\controllers\LayersController.js
+C:\projetoSere5\public\partials\layers.html
+C:\projetoSere5\app\routes\layer.js
+C:\projetoSere5\config\express.js
+C:\projetoSere5\public\partials\layer.html
+
+
+    CAPÍTULO 5
+    5.7 - Adicionando ROTA DE EXCLUSÃO ao Express
+
+            Continuando A Usar o Padrão REST
+
+            CRIANDO A ROTA DE EXCLUSÃO DE LAYERS
+
+                * Configurando a rota.
+
+                Adiconando a rota ao nosso arquivo de ROTAS referente ao recurso LAYER
+
+                    ..projetoSere5/app/routes/layer.js
+
+                        * INSERIMOS NO ARQUIVO CRIADO '../../routes/layer.js', A ROTA DE REMOÇÃO
+
+
+                        OBTENDO O "ID" DO LAYER NO CONTROLLER
+
+                            * Depois da rota inserida em '../../routes/layer.js', precisamos cria-lá no controle de layerS.
+
+                            * Criando a função removeLayer em nosso CONTROLLER -> app/controllers/layer.js
+
+                AGORA QUE JÁ TEMOS NOSSA ROTA DE EXCLUSÃO DEVIDAMENTE CONFIGURADA, VAMOS IMPLEMENTAR NO LADO DO CLIENTE A CHAMADA DESTA ROTA ATRAVÉS DO AngularJS
+
+Página 104 / 122-381
+
+    CAPÍTULO 5
+
+       ARQUIVOS ABERTOS:
+        C:\projetoSere5\public\index.html
+        C:\projetoSere5\public\js\main.js
+        C:\projetoSere5\public\js\controllers\LayersController.js
+        C:\projetoSere5\public\partials\layers.html
+        C:\projetoSere5\public\partials\layer.html
+        C:\projetoSere5\public\js\controllers\LayerController.js
+        C:\projetoSere5\app\routes\layer.js
+
+
+     5.8 - Express: Organizando melhor nossas ROTAS
+
+           Agora que já temos nossa ROTA de exclusão devidamente configurada, vamos implementar no lado do CLIENTE a chamada desta ROTA através do AngularJS.
+
+            Refatorando --> app/routes/layer.js
+
+Página 106 / 124-381
+    CAPÍTULO 5
+
+    5.9 - Removendo layer da lista
+
+            Implementando a funcionalidade de se excluir um layer da lista.
+
+            Agora que adicionamos do lado do SERVIDOR a rota para a exclusão dos LAYERS, precisamos implementar no lado do CLIENTE sua chamada através do Angular ( Framework Front-End sugerido).
+
+            Vamos usar a diretiva do AngularJS 'ng-click'
+
+                1º) Adicionando a diretiva no BOTÃO REMOVER da nossa "partials":
+
+                    /public/partials/layers.html
+
+                    1.1) Observação: Chamamos uma função 'remove()' que ainda não existe em nosso Controller
+
+
+                2º) Criando a função remove() em nosso CONTROLLER, LayersController --> // public/js/controllers/LayersController.js
+
+                        2.1) Observação: Já podemos testar a nova funcionalidade de remoção.
+
+                                http://localhost:3000/#/layers
+
+                                    OBSERVAÇÃO: o botão de REMOVER está funcionando corretamente.
+
+
+Página 	109 / 127-381
+
+    CAPÍTULO 5
+
+    5.10 - As diretivas NG-HIDE e NG-SHOW
+
+            Refatorando o arquivo  ../public/partials/layers.html
+
+
+Página 	110 / 128-381
+    EXIBINDO AVISOS PARA O USUÁRIO.
+
+        app/public/js/controllers/LayersController.js
+
+            Adicionando uma nova propriedade no ESCOPO do Controller:
+
+                o $scope.mensagem = {texto: ''}
+
+
+            Refatorando o arquivo  ../public/partials/layers.html
+
+                Adicionamos o parágrafo imediatamente após o DIV com a classe JUMBOTRON
+
+                    ENVIANDO AVISOS PARA OS USUÁRIOS
+
+                    Refatorando noss CONTROLLER:
+
+                         ..projetoSere5\public\js\controllers\LayersController.js
+
+
+                OBSERVAÇÃO: ATÉ AQUI JÁ SABEMOS (listar) e (remover) layerS, E MOSTRAR MENSAGENS PERSONALIZADAS PARA O USUÁRIO.
+
+             PRECISAMOS ADICIONAR MAIS UMA FUNCIONALIDADE EM NOSSO PROJETO: (exibir) o layer SELECIONADO NA LISTA.
+
+
+
+Página 112 / 130-381
+    CAPÍTULO 5
+    5.11 - Exibindo Layer Selecionado
+
+           Implementando a funcionalidade de exibição de 'Layer Selecionado' na lista.
+
+           Para isso, temos que alterar a página:
+
+             public/partials/layer.html.
+
+            Que por sinal estava meio que esquecida k k k k k
+
+
+        Essa página está relacionada a Tela de Cadastro de LAYERS
+
+            REFATORANDO --> public/partials/layer.html
+
+                http://localhost:3000/#/layer
+
+                    ok! SUCESSO!!!!!!!!!!!!!!!!!!!!!!!!
+
+                http://localhost:3000/#/layer/1
+
+                    ok! SUCESSO!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+Página 115 / 133-381
+    ROTAS DO ANGULARJS
+
+        Alterando a página principal 'layers.html', adicionando a diretiva 'ng-href' na âncora que contém o nome do layer.
+
+            Repare que o valor da diretiva 'ng-repeat' é composta por um AngularExpression.
+
+        Agora que já conseguimos acessar qualquer layer da nossa lista, disponibilizando seu ID para LayerController, precisamos buscá-lo em nosso servidor.
+
+        Utilizaremos mais uma vez o $resource.
+
+            Injetando o '$resource'	 em:
+
+                /public/js/controllers/LayerController.js
+
+
+
+
+Página 116 / 134-381
+
+    LIDANDO COM NOVOS layerS
+
+        O Botão 'NOVO layer' ainda não possui a funcionalidade desejada, que seria abrir um 'NOVA JANELA' para a criação de um novo layer, através de um formulário em branco.
+
+
+        Refatorando o arquivo 'main.js:
+            Adicionando uma nova rota no arquivo 'main.js'
+
+                C:\projetoSere5\public\js\main.js
+
+
+         Refatorando nosso Controller:
+            
+            Precisamos ajustar nosso Controller, inserindo uma condição IF em:
+
+                C:\projetoSere5\public\js\controllers\LayerController.js
+
+            Após alterar nosso Controller, precisamos ajustar nosso botão 'NOVO layer' da página 'layers.html'.
+
+                1º - torná-lo um link
+                2º - adicionar o diretiva 'ng-href'
+
+            Após esses passos, será implementada a LÓGICA QUE SALVA o 'LAYER'
+
+
+Página 118 / 136-381
+
+    5.12 SALVANDO UM LAYER
+
+        A diretiva 'NG-SUBMIT'
+
+        Adicionando essa diretiva no <form> da página ../../layer.html
+
+        Porém, ainda não possui nenhuma ação de salvar os layers.
+
+        A ação de salvar os layerS, vai ser implementada em  public/js/controllers/layerController.js
+
+
+            UFAAA! ESTAMOS QUASE LÁ!!!!!!
+            Depois de implementar a função salva() em ../../../layerController.js
+
+            Precisamos de uma ROTA para lidar com o VERBO 'POST' em nosso servidor.
+            Utilizaremos 'POST' para 'INCLUSÃO' e 'SALVAÇÃO'
+
+                Voltando ao BACK-END E IMPLEMENTAR A ROTA QUE ESTÁ FALTANDO...
+
+
+
+Página 120 / 138-381
+    
+    5.13 - ADICIONANDO ROTA DE GRAVAÇÃO AO EXPRESS
+
+        Implementando a ROTA que Inclui e Atualiza um layer.
+
+            1) Registrando primeiro a ROTA
+
+                ../app/routes/layer.js
+
+                adiciono a nova ROTA, só que desta vez como 'POST'
+
+
+        Adicionando a lógica no Controller do Express.
+
+            1) Primeiro passo, adicionar logo no início do Controller um contador, que já começa em 3
+
+                ../app/controllers/layer.js
+
+            2) Segundo passo, implementar a LÓGICA que ADICIONA e ALTERA um LAYER
+
+                ../app/controllers/layer.js
+
+
+            ESTÁ DANDO PROBLEMA NA ÚLTIMA PARTE.........URGHHHHHHHH
+
+                http://localhost:3000/#/layers
+
+
+
+Página 122 / 140-381
+
+5.14 - SERVIÇOS: ORGANIZANDO MELHOR NOSSO CÓDIGO
+
+            1º) Criando o arquivo 			
+                                            
+                    '../public/js/services/LayerServices.js'
+
+
+                    IMPORTANDO o SERVIÇO no arquivo:
+
+                        C:\projetoSere5\public\index.html
+
+                    Observação: A importação tem que ser feita depois do 'core do Angular' e 
+
+
+            2º)	Agora, basta trocarmos a injeção de "$resource" nos controllers 'LayerController' e 'LayersController' pelo nome do nosso serviço, no caso 'Layer'
+
+                    REFATORANDO os códigos: 'LayerController' e 'LayersController'
+                        //var Layer = $resource('/layers/:id'); //APAGAR ESTA LINHA de LayerController.js
+
+
+        ATÉ A ESTAPA 5 NÃO REALIZAMOS A PRESISTÊNCIA DOS DADOS DA APLICAÇÃO (como mencioando no enunciado do projeto), OU SEJA NÃO GRAVAMOS NADA EM NENHUM BANCO DE DADOS
+
+        PRÓXIMO PASSO: PERSISTIR DADOS DE VERDADE.
+            PRECISAMOS INTEGRAR NOSSOS REST Endpoints COM UM BANDO DE DADOS.
+
+        ESTUDAR O BANDO DE DADOS MONGODB NoSQL
+
+
+OREDEM DOS ARQUIVOS:
+
+C:\projetoSere5\public\js\controllers\LayersController.js
+
+C:\projetoSere5\public\partials\layers.html
+
+C:\projetoSere5\public\index.html
+
+C:\projetoSere5\public\js\main.js
+
+C:\projetoSere5\app\routes\layer.js
+
+C:\projetoSere5\app\controllers\layer.js
+
+C:\projetoSere5\public\partials\layer.html
+
+C:\projetoSere5\public\js\controllers\LayerController.js
+
+C:\projetoSere5\public\js\services\LayerService.js
+
+
+***************************************************************************
+
+
+Página 143-381
+
+ETAPA 6 - Banco de Dados (Persistindo os dados do projeto em um banco de dados NoSQL) + Integração do nosso Back-End com a Persistência de Dados(MongoBD)
+
+    O projeto foi sugerido utilizar um banco de dados relacional, porém irei utilizar um banco de dados com um novo paradigma.
+        
+        Utilizarei para a persistência de dados o banco NoSQL - MongoDB
+            
+            Nos Bancos de Danos NoSQL, pela ausência de esquemas, a VALIDAÇÃO e a INTEGRIDADE DOS DADOS são de responsabilidade da APLICAÇÃO.
+            
+            A discrepância da estrutura de dados armazenado no banco de dados e as estruturas de dados em memória é a chamada IMPEDÂNCIA.
+			
+            Quanto menor for a IMPEDÂNCIA, menos trabalha de conversão o desenvolvedor terá entre as diversas camadas que compõe o sistema.
+
+
+            JSON - Java Script Object Notation	
+
+			
+            OBSERVAÇÃO: A INSTALAÇÃO DO MongoDB se encontra em: 
+
+			    C:\projetoSere6\INSTALACAO.txt
+
+			OBSERVAÇÃO: NOVA INSTALAÇÃO
+
+				c:\mongodb
+
+          
+
+6.1 - Utilizando o MONGO DIRVER
+
+		Dentro do seguinte diretorio -> C:\projetoSere6\
+
+            As instruções abaixo foram retiradas de tutoriais na internet.
+
+                O camando abaixo foi executado dentro do seguinte diretório -> C:\projetoSere6\
+
+				    executei o seguinte comando: npm install -g node-gyp 
+
+					    Após execuçaõ do comando acima, as pastas abaixo foram criadas:
+
+							C:\Users\daniel\AppData\Roaming\npm\node_modules\node-gyp\bin
+
+
+            Para inicializar o mongoDB pelo prompt de comando vá até a seguinte pasta:
+
+                c:\mongodb\bin
+
+            E digite o seguinte comando:
+
+                mongo                    
+
+
+            Vamos a parte da criação do banco de dados da nossa aplicação
+
+				1) Verficando através da instância do banco que estamos       conectados:
+				            
+                    show dbs
+				
+                2) criando o bando 'projetosere'			
+
+					use projetosere
+
+				3) Verificar o banco que estamos trabalhando
+
+					db                
+
+Página 143-381
+
+6.2 - Gerenciando a CONEXÃO do Banco de Dados            
+
+			Dentro da pasta  C:\projetoSere6\
+
+				Cria-se o arquivo: consulta.js
+
+
+            Testando a conexão com banco.
+
+                Para realizar este teste, escolhi um ObjectID existente, que eu sei que existe no banco de dados.
+
+                Por exemplo:
+
+                    var _idProcurado = new ObjectID('5beb31518c663df32753224a'); 
+
+                E inseri no arquivo consulta.js para realizar o teste.
+
+            
+            Para realizar o teste e ter certeza de que tudo funcionou, é só ir até o terminal dentro de pasta do projeto e digitar a seguinte instrução:
+
+                c:\projetoSere6>node consulta
+                    
+                Se tudo correr bem, a saída no console vai ser igual a saída abaixo:
+
+                    { 
+                        _id: 5beb31518c663df32753224a,
+                        nome: 'Precipitação',
+                        layers: 'teste_vaga:prec',
+                        descricao: 'Precipitação de Risco de Fogo na América do Sul',
+                        url: 'http://www.terrama2.dpi.inpe.br/teste_vaga/geoserver/ows?',
+                        projection: 'EPSG:4326' 
+                    }
+
+
+            OBSERVAÇÃO: No MongoDB não se faz necessário o uso de esquemas, porém não quer dizer que não sejam de suma importância.
+
+             No MongoDB a integridade dos dados é de total responsabilidade da aplicação ou seja, responsablidade do DESENVOLVEDOR.
+
+            Fica a cargo do DESENVOLVEDOR a responsabilidade pela tradução de Strings para o ObjectID, caso contrário a função: findOne() não funcionará.
+
+            Por tudo isso que foi explicado acima, foi criado a biblioteca ODM (ObJECT Document Modeler) Mongoose.
+
+
+6.3 - Instalando a BIBLIOTECA MONGOOSE.
+
+        npm install mongoose@4.10.4 --save
+
+            ou 
+
+        npm install mongoose --save
+
+
+6.4 - Gerenciando a conexão
+
+        Criando um modulo dabase.js dentro da pasta ../config/
+
+            C:\projetoSere6\config\database.js
+
+
+        Iniciando a CONEXÃO junto com o SERVIDOR:
+
+            C:\projetoSere6\server.js
+
+        
+        Refatorando o arquivo ..\config\database.js
+
+            Vamos informar o 'ESTADO' de cada conexão e depois gartiremos que a conexão será fechada.
+
+
+6.5 - O famoso ESQUEMAS (Aquele visível nos bancos realcionais tais como:           
+        PostgreSQL (BANCO que foi pedido para ser usado no enunciado do            projeto))
+
+        Vamos testar o que foi feito até agora.
+        Vamos subir o servidor mais uma vez:
+
+            node server
+        
+        Tremos a seguinte sáida no console:
+            Express Server escutando na porta 3000
+            Mongoose! Conectado em mongodb://localhost/projetosere
+
+
+        Vamos aos ESQUEMAS
+
+            O Mongoose possuí um objeto chamdo 'Schema'            
+
+            Vamos criar um módulo chamado: layer.js na pasta ../app/models
+
+                C:\projetoSere6\app\models\layer.js
+
+            Só pra lembrar, utilizamos o EXPRESS-LOAD para disponibilizar todos os CONTROLLERS da pasta ..app/controllers em uma instância do ExpressJS.
+
+
+6.6 - MODELOS
+
+        Utilizando os MODELOS
+
+            Refatorando nosso CONTROLLER!
+
+
+6.7 - BUSCANDO DOCUMENTOS (Persistência de Dados)
+
+6.8 - Buscando pelo ID
+
+        Refatorando nosso CONTROLLER
+
+            app/controllers/layer.js
+
+            Buscar um LAYER pelo ID utilizando a função 'Layer.findById'
+
+                Criando a função -> controller.obtemLayer = function(req, res){}
+
+
+6.9 - REMOVENDO DOCUMENTOS
+
+        app/controllers/layer.js
+
+            Refatorando nosso CONTROLLER 
+
+            criando a função: removeLayer
+
+6.10 - ATUALIZANDO DOCUMENTOS
+
+        app/controllers/layer.js
+
+            criando a função: salvaLayer
+
+
+6.11 - MODEL OU DOCUMENTO?
+
+
+Para realizarmos o teste da aplicação:
+
+    1) execute o seguinte comando no console:
+
+        node server.js
+
+    2) utilize um browser de sua preferência e digite a url abaixo:
+
+        http://localhost:3000/#/layers
+
+        
+        Cadastre os layers de sua preferência.
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+        
+            
+        

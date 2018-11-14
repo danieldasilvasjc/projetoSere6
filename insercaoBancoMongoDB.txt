@@ -1,0 +1,29 @@
+
+
+var layer1 = [
+                  {_id: 1,
+                  "nome": "Estados AMS",
+                  "layers": "teste_vaga:estados_ams",
+                  "descricao": "Layer dos Estados da América do Sul",
+                  "url": "http://www.terrama2.dpi.inpe.br/teste_vaga/geoserver/ows?",
+                  "projection": "EPSG:4326"
+                 },
+                 {
+                  _id: 2,
+                  "nome": "Precipitação",
+                  "layers": "teste_vaga:prec",
+                  "descricao": "Precipitação de Risco de Fogo na América do Sul",
+                  "url": "http://www.terrama2.dpi.inpe.br/teste_vaga/geoserver/ows?",
+                  "projection": "EPSG:4326"
+                  },
+                  {
+                    _id: 3,
+                    "nome": "Municipios",
+                    "layers": "teste_vaga:municipios_br",
+                    "descricao": "Municípios Brasileiro",
+                    "url": "http://www.terrama2.dpi.inpe.br/teste_vaga/geoserver/ows?",
+                    "projection": "EPSG:4326"
+                   }
+               ];
+               
+db.projetosere.insert(layer1);

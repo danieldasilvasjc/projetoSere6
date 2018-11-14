@@ -1,0 +1,77 @@
+
+
+LINK DO PROJETO NO GITHUB:
+
+    https://gist.github.com/terralib-bot/c334cca3e09299db91124f38df503269
+
+    
+
+Simple WebGIS - TerraMA²
+Enunciado
+
+Sua atividade será desenvolver uma aplicação básica para cadastro e visualização de layers em um mapa. A imagem abaixo exemplifica como é feito utilizando o aplicativo de visualização do TerraMA².
+
+
+Requisitos
+O BackEnd: utilizar o padrão REST com NodeJS (Version 8+) e ExpressJS na spec (Version ES6+):
+
+Um layer pode ser definido abreviadamente pela a seguinte estrutura:
+nome Nome do layer para visualização. Por exemplo: Estados;
+layers Nome real do layer. No GeoServer, é definido na seguinte estrutura: workspace:layerName. Por exemplo: teste_vaga:estados_ams;
+descricao Informação extra relacionada ao layer (OPCIONAL). Por exemplo: Estados da América do Sul
+url URL para disponibilização do layer.
+projection Projeção espacial do layer. Por exemplo: EPSG:4326
+Criar um CRUD contendo o resource /layers para operar sobre os layers WMS.
+
+Neste link ( http://www.dpi.inpe.br/jenkins-data/terrama2/tmp/layers.json ) 
+Você pode encontrar um conjunto de dados para inserção e teste que apontam para alguns layers já definidos para atividade. Assim não será necessário configurar uma instância do servidor de mapas GeoServer.
+
+Utilize o banco de dados PostgreSQL para armazenar essas informações. Como biblioteca javascript, use sequelize 3+ or pq.
+
+O FrontEnd: utilizar AngularJS 1, jQuery, Boostrap e OpenLayers:
+
+Desenvolva uma interface simples para cadastro dos layers do backend.
+Utilize o OpenLayers para plotar no mapa os layers cadastrados.
+Desenvolva um sidebar menu para exibir os layers cadastrados que deverá conter um checkbox para exibir/esconder os layers.
+Desenvolver casos de teste para seus respectivos modulos.
+
+Faça upload do projeto no GitHub e disponibilize o link para visualização.
+
+Observações
+Este é um pequeno exercício. Sinta-se a vontade para adicionar novas funcionalidades em seu aplicativo. O foco principal é identificar e analisar como você se planeja e utiliza os recursos das tecnologias para resolver o problema.
+
+Deadline
+O prazo final para entrega do projeto será no dia 29/10/2018.
+
+Bonus
+O candidato se destacará caso implemente um ou mais requisitos sugeridos abaixo:
+
+Container Docker com o ambiente;
+Desenvolver uma Árvore de legendas (Conforme a imagem);
+Upload de sua aplicação em algum servidor (AWS, Heroku, etc).
+Referências
+Open Geospatial Consortium - Web Map Service
+TerraMA²
+OpenLayers
+AngularJS
+jQuery
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+C:\estudoMean\cap-05\public\js\controllers\ContatosController.js
+
+C:\estudoMean\cap-05\public\partials\contatos.html
+
+C:\estudoMean\cap-05\public\index.html
+
+C:\estudoMean\cap-05\public\js\main.js
+
+C:\estudoMean\cap-05\app\routes\contato.js
+
+C:\estudoMean\cap-05\app\controllers\contato.js
+
+C:\estudoMean\cap-05\public\partials\contato.html
+
+C:\estudoMean\cap-05\public\js\controllers\ContatoController.js
+
+C:\estudoMean\cap-05\public\js\services\ContatoService.js

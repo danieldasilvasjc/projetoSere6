@@ -1,0 +1,42 @@
+<!-- C:\projetoSere6\public\partials\layers.html -->
+
+<!-- A nova página, agora com uso de CSS -->
+<div class="jumbotron">
+    <h1 class="text-center">Bem-vindo ao Simple WebGIS - TerraMA2</h1>
+  </div>
+  <!-- Inserção da mensagem de texto para o usuário, referente a refatoração doa Etapa 5 -->
+  <p ng-show="mensagem.texto">{{mensagem.texto}}</p>
+  <a ng-href="#/layer" class="btn btn-primary">Novo Layer</a>
+  <p ng-show="layers.length">Layers cadastrados: {{layers.length}}</p> <!-- Exibimos o tamanho do array via AE(Angular Expression) -->
+  <p class="text-info" ng-hide="layers.length">Não há layers cadastrados</p>
+    <input type="search" placeholder="parte do nome" ng-model="filtro">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <tr>
+          <th>Nome</th>
+          <th>Layers</th>
+          <th>Descrição</th>
+          <th>URL</th>
+          <th>Projeção</th>
+          <th class="text-center">Ação</th>
+        </tr>
+        <!--Nesse ponto, utiliza-se mais uma diretiva do AngularJS, a diretiva -> ng-repeat -->
+        <!--Estou adicionando a diretiva, na <tr> que exibe os dados da layer -->
+        <!--Vamos indicar qual lista estamos varrendo, no nosso caso layers -->
+        <tr ng-repeat="layer in layers | filter: filtro">
+            <td>
+                  <!-- Um ponto importante é notarmos que a URL começa com '#', sinalizando que esta URL deve ser processada no CLIENT-SIDE-->
+                  <a ng-href="#/layer/{{layer._id}}">{{layer.nome}}</a>
+            </td>
+            <!--<td>{{layer.nome}}</td> -->
+            <td>{{layer.layers}}</td>
+            <td>{{layer.descricao}}</td>
+            <td>{{layer.url}}</td>
+            <td>{{layer.projection}}</td>              
+            <td class="text-center">
+                <!--Dando funcionalidade ao botão 'Remover' através da diretiva ng-click -->
+                <button ng-click="remove(layer)" class="btn btn-warning">Remover</button>
+            </td>
+        </tr>
+      </table>
+    </div>

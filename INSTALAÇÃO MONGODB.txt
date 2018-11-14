@@ -1,0 +1,183 @@
+
+
+DOWNLOAD do MongoDB:
+
+	https://www.mongodb.com/download-center?jmp=nav#community
+
+PASTA DE DOWNLOAD:
+
+	C:\Users\daniel\Downloads\Desenvolvimento\Banco de Dados\MongoDB
+
+EXECUTANDO O ARQUIVO DE INSTALAÇÃO:
+
+	mongodb-win32-x86_64-2008plus-ssl-3.2.10-signed
+
+
+INSTALAÇÃO MONGODB
+
+
+	FOLDER DE INTALAÇÃO
+
+		ESSA INSTALAÇÃO FOI FEITA ATRAVÉS DO LIVRO - MONGODB CONSTRUA NOVAS APLICAÇÕES, COM NOVAS TECNOLOGIAS (Casa do Código)
+
+			C:\Program Files\MongoDB\Server\3.2\bin
+
+
+	CONFIGURANDO VARIÁVEL DE AMBIENTE	
+
+		NOME DA VARIÁVEL: MONGODB_HOME
+		VALOR DA VARIÁVEL: C:\Program Files\MongoDB
+
+
+    ALTERAÇÃO NA VARIÁVEL DE AMBIENTE
+
+    	Realizando alteração no nome da variável
+ 
+ 			Nome variável: MONGODB_HOME
+			Valor da variável: C:\Program Files\MongoDB\Server\3.2
+
+
+
+
+O VALOR DA VARIÁVEL PATH ANTES DE ADICIONARMOS O MONGODB
+
+C:\ProgramData\Oracle\Java\javapath;c:\Program Files (x86)\AMD APP\bin\x86_64;c:\Program Files (x86)\AMD APP\bin\x86;c:\Program Files (x86)\Intel\iCLS Client\;c:\Program Files\Intel\iCLS Client\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Windows Live\Shared;%JAVA_HOME%\bin;%JAVA_HOME%\bin;%M2_HOME%\bin;%MINGW_BIN%;%MSYS_BIN%;%M2_HOME%/bin;C:\HashiCorp\Vagrant\bin;%AXIS2_HOME%;%AXIS2_HOME\bin%;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Git\cmd;C:\Program Files\nodejs;%NODE_ENV%
+
+
+O VALOR DA VARIÁVEL PATH APÓS ADICIONARMOS O MONGODB
+
+C:\ProgramData\Oracle\Java\javapath;c:\Program Files (x86)\AMD APP\bin\x86_64;c:\Program Files (x86)\AMD APP\bin\x86;c:\Program Files (x86)\Intel\iCLS Client\;c:\Program Files\Intel\iCLS Client\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Windows Live\Shared;%JAVA_HOME%\bin;%JAVA_HOME%\bin;%M2_HOME%\bin;%MINGW_BIN%;%MSYS_BIN%;%M2_HOME%/bin;C:\HashiCorp\Vagrant\bin;%AXIS2_HOME%;%AXIS2_HOME\bin%;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Git\cmd;C:\Program Files\nodejs;%NODE_ENV%;%MONGODB_HOME%\bin;
+
+
+
+
+C:\Program Files\MongoDB\Server\3.2\bin
+
+
+TODOS OS COMANDOS PARA A CONFIGURAÇÃO DO MONGODB FOI EXECUTADO NA RAÍZA DO SISTEMA:
+C:>
+
+
+////////////////////////////////////////////////////////////////////////////
+
+
+INSTALANDO ROBOMONGO
+
+
+PASTA DESTINO:
+C:\Program Files\Robomongo 0.9.0-RC10
+
+
+////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C:\Windows\Logs\CBS\CBS.log
+
+
+Rua: Santo Agostinho - Vila Adyana - SJC
+
+Pro Onco
+
+horario 16:20.......
+
+
+
+00113188001042011
