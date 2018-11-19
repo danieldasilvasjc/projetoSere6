@@ -215,13 +215,13 @@ ETAPA 2
 
 
 
-    AQUI COMEÇA O PROJETO DO CAPÍTULO 2.9 ONDE FAREMOS O USO DO: EXPRESS-LOAD
+    AQUI COMEÇA O PROJETO DO ETAPA 2.9 ONDE FAREMOS O USO DO: EXPRESS-LOAD
 
         ESTAPA 2 O EXPRESS possui uma alternativa para o carregamento de nossos MODELS, CONTROLLERS e ROUTES, diminuindo drasticamente o uso da função REQUIRE().
                                É o que veremos a seguir no ETAPA 2.9
 
 
-    CAPÍTULO 2
+    ETAPA 2
 
         2.9	- Carregando dependências com o express-load
 
@@ -254,7 +254,7 @@ ETAPA 2
 
 
                   
-    CAPÍTULO 2				
+    ETAPA 2				
 
         Modificando o arquivos de ROTAS:
 
@@ -606,199 +606,202 @@ A diretiva 'ng-controller'
 
 4.14 - O MÓDULO NGROUTE  - o módulo de ROTAS do ANGULARJS (SISTEMA DE ROTAS)
 
-                                    IMPORTANTE:
+        IMPORTANTE:
 
-                                        O SISTEMA DE ROTAS do AngularJS só funciona se a aplicação RODAR em um SERVIDOR WEB.
-
-
-                                        O NGROUTE visa blindar o DESENVOLVEDOR da manipulação do DOM diretamente.
-
-                                        1) Instalando o ngRoute
-
-                                            bower install angular-route --save
-
-                                            instalou "angular-route": "^1.7.5"
+            O SISTEMA DE ROTAS do AngularJS só funciona se a aplicação RODAR em um SERVIDOR WEB.
 
 
-                                        2) Importando o script em nosa página 'public/index.html', imediatamente após a importação do script do AngularJS
+                O NGROUTE visa blindar o DESENVOLVEDOR da manipulação do DOM diretamente.
 
-                                        3) Essas alterações ainda não são o suficiente, precisamos tornar nosso módulo principal 'projetosere' ciente deste módulo.
+                    1) Instalando o ngRoute
 
-                                           Para isso, vamos editar nosso arquivo:
+                        bower install angular-route --save
 
-                                                   Adicionando o módulo ngRoute com sua dependência.
-
-                                                   C:\projetoSere4\public\js\main.js
+                        instalou "angular-route": "^1.7.5"
 
 
+                    2) Importando o script em nosa página 'public/index.html', imediatamente após a importação do script do AngularJS
 
-                                        4)	Para configurar as rotas, tem que alterar o arquivo 'public/index.html'
+                    3) Essas alterações ainda não são o suficiente, precisamos tornar nosso módulo principal 'projetosere' ciente deste módulo.
 
-                                                Removendo a diretiva NG-CONTROLLER de <BODY ...>
+                        Para isso, vamos editar nosso arquivo:
 
-                                                A remoção se faz necessária porque a associação do CONTROLLER será feita através da configuração das ROTAS.
-                                                Isso permite que parciais possam utilizar controllers diferentes de acordo com quem as usa.
+                           Adicionando o módulo ngRoute com sua dependência.
+
+                               C:\projetoSere4\public\js\main.js
+
+
+
+                    4)	Para configurar as rotas, tem que alterar o arquivo 'public/index.html'
+
+                            Removendo a diretiva NG-CONTROLLER de <BODY ...>
+
+                               A remoção se faz necessária porque a associação do CONTROLLER será feita através da configuração das ROTAS.
+                               Isso permite que parciais possam utilizar controllers diferentes de acordo com quem as usa.
 
 Página 68 / 86-381
 
-                        CAPÍTULO 4
+ETAPA 4
 
-                                4.15 - CRIANDO VIEWS PARCIAIS
+4.15 - CRIANDO VIEWS PARCIAIS
 
-                                        Já possuímos a nossa VIEW PRINCIPAL, a INDEX.HTML
+        Já possuímos a nossa VIEW PRINCIPAL, a INDEX.HTML
 
-                                        Cria-se a pasta 'app/public/partials'
-
-
-                                        E dentro dessa pasta, guardaremos todas as nossas views parciais.
-
-                                            1)	Criar a view parcial, que será responsável pela listagem dos LAYERS.
-
-                                                    public/partials/layers.html
-
-                                            2)	Cria-se o arquivo 'app/public/partials/layer.html'
-
-                                            3)	Agora temos 3 arquivos:
-
-                                                    Página principal -> /public/index.html
-
-                                                    View parcial responsável pela listagem de layers -> /public/partials/layers.hml
-
-                                                    View parcial responsável pela exibição do layer selecionado na lista -> /public/partials/layer.html
+        Cria-se a pasta 'app/public/partials'
 
 
+            E dentro dessa pasta, guardaremos todas as nossas views parciais.
+
+                1)	Criar a view parcial, que será responsável pela listagem dos LAYERS.
+
+                        public/partials/layers.html
+
+                2)	Cria-se o arquivo 'app/public/partials/layer.html'
+
+                3)	Agora temos 3 arquivos:
+
+                        Página principal -> /public/index.html
+
+                        View parcial responsável pela listagem de layers -> /public/partials/layers.hml
+
+                        View parcial responsável pela exibição do layer selecionado na lista -> /public/partials/layer.html
 
 
-Página 69 / 87-381					4.16 - CONFIGURANDO ROTAS COM $routeProvider
-
-                                               Inserindo as rotas no módulo principal da aplicação, no nosso caso, no arquivo:
-
-                                                       C:\projetoSere4\public\js\main.js
-
-                                                       Injeta-se a FUNÇÃO config;
-                                                       Artefato INJETADO pelo AngularJS, o objeto $routeProvider
-
-                                                           ../public/js/main.js
-
-                                                   Faça o seguinte teste -> http://localhost:3000/#/layers
 
 
-                                                   CRIANDO MAIS UM ROTA!
+Página 69 / 87-381					
 
-                                                   http://localhost:3000/index.html#/layer/2
+4.16 - CONFIGURANDO ROTAS COM $routeProvider
 
-                                                   OBSERVAÇÃO: Para exibir qual objeto estamos acessando de acordo com o LAYERID informado. Precisamos CTRL+SHIFT+J
+        Inserindo as rotas no módulo principal da aplicação, no nosso caso, no arquivo:
 
-                                                   Ainda não conseguimos obter um layer em específico. (VAI SER EXPLICADO NO PRÓXIMO CAPÍTULO)
+            C:\projetoSere4\public\js\main.js
+
+                Injeta-se a FUNÇÃO config;
+                Artefato INJETADO pelo AngularJS, o objeto $routeProvider
+
+                    ../public/js/main.js
+
+                Faça o seguinte teste -> http://localhost:3000/#/layers
+
+
+                CRIANDO MAIS UM ROTA!
+
+                    http://localhost:3000/index.html#/layer/2
+
+                OBSERVAÇÃO: Para exibir qual objeto estamos acessando de acordo com o LAYERID informado. Precisamos CTRL+SHIFT+J
+
+                Ainda não conseguimos obter um layer em específico. (VAI SER EXPLICADO NO PRÓXIMO ETAPA)
 
 
 Página 	71 / 89-381
-                                    4.17 - O OBJETO $routeParams
 
-                                                Agora faremos a alteração devida para acessarmos um layer específico.
+4.17 - O OBJETO $routeParams
 
-                                                Criando o CONTROLLER -> public/js/controllers/LayerControllers.js
+            Agora faremos a alteração devida para acessarmos um layer específico.
 
-                                                        Injetamos $routeParams ao CONTROLLER
+                Criando o CONTROLLER -> public/js/controllers/LayerControllers.js
 
-
-                                                Não podemos esquecer de IMPORTAR LayerControllers ao arquivo --> public/index.html
-
-                                                        Faça o seguinte teste -->  http://localhost:3000/#/layer/3
-
-                                                ADICIONANDO ROTA PADRÃO
-
-                                                    Caso um endereço não exista, cria-se uma ROTA padrão.
-
-                                                    Faz-se isso através da função:
-
-                                                        $routeProvider.otherwise({redirectTo: '/layers'});
+                    Injetamos $routeParams ao CONTROLLER
 
 
+                    Não podemos esquecer de IMPORTAR LayerControllers ao arquivo --> public/index.html
+
+                        Faça o seguinte teste -->  http://localhost:3000/#/layer/3
+
+                    ADICIONANDO ROTA PADRÃO
+
+                        Caso um endereço não exista, cria-se uma ROTA padrão.
+
+                        Faz-se isso através da função:
+
+                            $routeProvider.otherwise({redirectTo: '/layers'});
 
 
-Página 74 / 92-381					CAPÍTULO 4
-
-                                    Como foi pedido no enunciado do teste, vamos ao uso do 
-                                    BOOTSTRAP.
-
-                                    4.18 -	BOOTSTRAP: VISUAL PROFISSOINAL EM NOSSAS VIEWS
 
 
-                                            Baixando o BOOTSTRAP através do Bower
+Página 74 / 92-381					
 
-                                                PESQUISANDO VERSÕES DO BOOSTRAP
+ETAPA 4
 
-                                                       bower search bootstrap
+Como foi pedido no enunciado do teste, vamos ao uso do BOOTSTRAP.
 
-                                                Depois executei: bower install bootstrap --save
+4.18 -	BOOTSTRAP: VISUAL PROFISSOINAL EM NOSSAS VIEWS
 
-                                                    instalou a seguinte versão do bootstrap --> "bootstrap": "^4.1.3"
-                                                                                            --> jquery#3.1.1
+            Baixando o BOOTSTRAP através do Bower
 
-                                                ADICIONANDO O Bootstrap á nossas páginas.
+            PESQUISANDO VERSÕES DO BOOSTRAP
 
-                                                    Importando o bootstrap a nossas páginas via index.html
-                                                    Foi adicionado a classe 'container' do BootStrap na tag BODY...
+                bower search bootstrap
 
-                                                POR FIM, COMPLEMENTANDO A PÁGINA public/partials/layers.html
+            Depois executei: bower install bootstrap --save
 
-                                                    Faça o seguinte teste -->  http://localhost:3000/#/layers
+                instalou a seguinte versão do bootstrap --> "bootstrap": "^4.1.3"
+                                                        --> jquery#3.1.1
+
+            ADICIONANDO O Bootstrap á nossas páginas.
+
+                Importando o bootstrap a nossas páginas via index.html
+                Foi adicionado a classe 'container' do BootStrap na tag BODY...
+
+            POR FIM, COMPLEMENTANDO A PÁGINA public/partials/layers.html
+
+                Faça o seguinte teste -->  http://localhost:3000/#/layers
 
 
 
 
 Página 78 / 96-381
-                                       CAPÍTULO 4
 
-                                    Dando mais DINAMISMO em nossas páginas!
+ETAPA 4
 
-                                       4.19 -	A DIRETIVA 'ng-repeat'
+Dando mais DINAMISMO em nossas páginas!
 
-                                            http://localhost:3000/#/layers
+4.19 -	A DIRETIVA 'ng-repeat'
+
+        http://localhost:3000/#/layers
 
 
-                                            OBSERVAÇÃO: Criou-se uma lista de LAYERS em --> public/js/controllers/LayersController.js
+        OBSERVAÇÃO: Criou-se uma lista de LAYERS em --> public/js/controllers/LayersController.js
 
-                                            Inseriu-se a DIRETIVA 'ng-repeat' dentro da <TR> que exibe os dados do layer.
+        Inseriu-se a DIRETIVA 'ng-repeat' dentro da <TR> que exibe os dados do layer.
 
-                                            Para ver se tudo caminhou de maneira correta, executamos o seguinte teste:
+        Para ver se tudo caminhou de maneira correta, executamos o seguinte teste:
 
-                                                http://localhost:3000/#/layers
+            http://localhost:3000/#/layers
 
 
 
 Página 80 / 98-381
-                                    CAPÍTULO 4
 
-                                    Sei que isso não foi pedido, porém é uma funcionalidade a mais no projeto.
+ETAPA 4
 
-                                    4.20 -	A DIRETIVA 'ng-model' E FILTRAGEM DA LISTA
+    Sei que isso não foi pedido, porém é uma funcionalidade a mais no projeto.
 
-                                            Podemos filtrar nossa lista de layers, mas para isso, precisamos adicionar um 'INPUT'
-                                            em nossa view public/partials/layers.html
+    4.20 -	A DIRETIVA 'ng-model' E FILTRAGEM DA LISTA
 
+            Podemos filtrar nossa lista de layers, mas para isso, precisamos adicionar um 'INPUT'em nossa view public/partials/layers.html
 
-                                                AQUI mexemos com TWO-WAY-DATABINDING -> lemos e gravamos em um propriedade do SCOPO DO CONTROLLER, para isso utilizamos a diretiva: NG-MODEL
-
+            AQUI mexemos com TWO-WAY-DATABINDING -> lemos e gravamos em um propriedade do SCOPO DO CONTROLLER, para isso utilizamos a diretiva: NG-MODEL
 
 
-                                            Depois precisamos adicionar uma diretiva 'ng-model' ao INPUT
 
-                                            Agora, precisamos criar a propriedade no escopo de LayersController
+                Depois precisamos adicionar uma diretiva 'ng-model' ao INPUT
+
+                Agora, precisamos criar a propriedade no escopo de LayersController
 
 
-                                            Realizando alguns testes das APIs.
+                Realizando alguns testes das APIs.
 
-                                                Subindo a aplicação:
+                    Subindo a aplicação:
 
-                                                    c:\projetoSere4>node server.js
+                        c:\projetoSere4>node server.js
 
-                                                No browser de sua preferência digite:
+                    No browser de sua preferência digite:
 
-                                                    http://localhost:3000/layers
+                        http://localhost:3000/layers
 
-                                                    http://localhost:3000/#!/layers
+                        http://localhost:3000/#!/layers
 
 
     1) 	npm info express version
@@ -810,7 +813,7 @@ Página 80 / 98-381
     4)	npm install	
 
 
- REVISÃO DO CAPÍTULO 4 (Data 06/02/2017)
+ REVISÃO DO ETAPA 4 
 
 ***************************************************
 NOVO                                              *
@@ -859,7 +862,7 @@ public\js\controllers\layerController.js
 
 
 
- NO PRÓXIMO CAPÍTULO IREMOS ADICIONAR FUNCIONALIDADES AO BOTÃO EXCLUIR, E FUNCIONALIDADE PARA SE EDITAR OS layerS.
+ NO PRÓXIMO ETAPA IREMOS ADICIONAR FUNCIONALIDADES AO BOTÃO EXCLUIR, E FUNCIONALIDADE PARA SE EDITAR OS layerS.
 
 
  *********************************************************************************************
@@ -870,58 +873,55 @@ public\js\controllers\layerController.js
 
                          INTEGRAÇÃO ENTRE FRONT-END E BACK-END
 
-    1) 	npm info express version
+1) 	npm info express version
 
-    2)	npm i -g npm-check-updates
+2)	npm i -g npm-check-updates
     
-    3)	npm-check-updates -u
+3)	npm-check-updates -u
     
-    4)	npm install	
+4)	npm install	
 
 
 Página 85 / 103-381
 
-    CAPÍTULO 5 - INTEGRANDO ANGULARJS COM EXPRESS
+ETAPA 5 - INTEGRANDO ANGULARJS COM EXPRESS
+
+Integrando front-end e back-end. Realizando uma integração entre ambos.
 
 
-        Integrando front-end e back-end. Realizando uma integração entre ambos.
+5.1	- O SERVIÇO HTTP
+
+        É um serviço responsável por REQUISIÇÕES AJAX.
+
+        O Sistema de INJEÇÃO DE DEPENDÊNCIA do AngularJS é baseado em NOMES.
+
+        Injetamos esse SERVIÇO em nosso CONTROLLER.
 
 
-            CAPÍTULO 5
+5.2	- Programação Assíncrona e CallBack Hell
 
-            5.1	- O SERVIÇO HTTP
+        O CallBack Hell é caracterizado pelo "Pyramid of DOOM" (Um jeito ruim de programar)
 
-                É um serviço responsável por REQUISIÇÕES AJAX.
+            Requisição Assíncrona -> Nunca sabemos quando ela será concluída de fato.
 
-                O Sistema de INJEÇÃO DE DEPENDÊNCIA do AngularJS é baseado em NOMES.
+                                     Invoca chamadas I.O não Bloqueantes, são executadas em PARALELO.
 
-                Injetamos esse SERVIÇO em nosso CONTROLLER.
+                                     É uma boa prática passar funções assíncronas um CALLBACK
 
-
-            5.2	- Programação Assíncrona e CallBack Hell
-
-                O CallBack Hell é caracterizado pelo "Pyramid of DOOM" (Um jeito ruim de programar)
-
-                    Requisição Assíncrona -> Nunca sabemos quando ela será concluída de fato.
-
-                                             Invoca chamadas I.O não Bloqueantes, são executadas em PARALELO.
-
-                                             É uma boa prática passar funções assíncronas um CALLBACK
-
-                    Requisição Síncrona -> Invoca chamadas I.O Bloqueantes.
+            Requisição Síncrona -> Invoca chamadas I.O Bloqueantes.
 
 
 
 Páginas 90 / 108-381
 
-    CAPÍTULO 5
+    
 
-    5.3	- PROMISES: Combatendo o CallBack Hell
+5.3	- PROMISES: Combatendo o CallBack Hell
 
 
-        Uma promisse é um OBJETO que fornecerá o resultado futuro de uma ação.
+Uma promisse é um OBJETO que fornecerá o resultado futuro de uma ação.
 
-            Estados de um PROMISE:
+    Estados de um PROMISE:
 
                 * FULFILLED: quando a PROMISE é bem-sucedida
 
@@ -930,53 +930,50 @@ Páginas 90 / 108-381
                 * FAILED:    quando a PROMISE não é nem bem-sucedida e nem rejeitada
 
 
-                As FUNÇÕES: THEN e CATCH
+    As FUNÇÕES: THEN e CATCH
 
-                A função THEN recebe como parâmetros CALLBACKS,
-                e é executada quando o STATUS da PROMISSE for FULLFILED.
+        A função THEN recebe como parâmetros CALLBACKS, e é executada quando o STATUS da PROMISSE for FULLFILED.
 
-                Já a afunção CATCH é executado quando o STATUS da PROMISSE for REJECTED e FAILED
+        Já a afunção CATCH é executado quando o STATUS da PROMISSE for REJECTED e FAILED
 
 
 
 Páginas 96 / 114-381
     
-    CAPÍTULO 5
 
-    5.4 - OBTENEDO LAYERS COM O $HTTP
+5.4 - OBTENEDO LAYERS COM O $HTTP
 
-             * Refatorando nosso Controller: public/js/controllers/LayersController.js
+        * Refatorando nosso Controller: public/js/controllers/LayersController.js
 
-            * Deixando de trabalhar com dados estáticos e obtê-los do nosso BACK-END feito com ExpressJS.
+        * Deixando de trabalhar com dados estáticos e obtê-los do nosso BACK-END feito com ExpressJS.
 
                 Refatorando a exbibição do total de layerS CADASTRADOS:
 
                     C:\projetoSere5\public\partials\layers.html
 
 
-                    Em LayersController.js
+                Em LayersController.js
 
-                        * Removendo a função '$scope.incrementa' e o atributo '$scopte.total'
+                    * Removendo a função '$scope.incrementa' e o atributo '$scopte.total'
 
-                        * Alterando o arquivo:
+                    * Alterando o arquivo:
 
-                                C:\estudoMean\cap-05\public\partials\layers.html
+                        C:\projetoSere5\public\partials\layers.html
 
-                                    utilizando data binding;
+                            utilizando data binding;
 
 
 Páginas 97 / 115-381
     
-    CAPÍTULO 5
 
-    5.5 - MÓDULO ngResource: TRABALHANDO ALTO NÍVEL
+5.5 - MÓDULO ngResource: TRABALHANDO ALTO NÍVEL
 
-            Apesar de $HTTP ser funcional, o AngularJS possui um SERVIÇO de mais alto nível chamado $RESOURCE, específico para consumir REST ENDPOINTS.
+        Apesar de $HTTP ser funcional, o AngularJS possui um SERVIÇO de mais alto nível chamado $RESOURCE, específico para consumir REST ENDPOINTS.
 
-                A cola entre FRONT-END e BACK-END será feita utilizando NGRESOURCE
+            A cola entre FRONT-END e BACK-END será feita utilizando NGRESOURCE
 
 
-                OBSERVAÇÃO: CONSUMINDO REST-ENDPOINTS ATRÁVÉS DO NGRESOURCE
+            OBSERVAÇÃO: CONSUMINDO REST-ENDPOINTS ATRÁVÉS DO NGRESOURCE
 
                 #### Esse módulo NGRESOURCE, é responsável por consumir REST Endpoints. ####
 
@@ -1032,22 +1029,22 @@ Páginas 97 / 115-381
 
 Página	98 / 116-381
     
-    CAPÍTULO 5
-    [CONTINUANDO A Explicação das atividades acima. Falta alterar a lógica do nosso CONTROLLER, para que se faça uso do $RESOURCE]
+[CONTINUANDO A Explicação das atividades acima. Falta alterar a lógica do nosso CONTROLLER, para que se faça uso do $RESOURCE]
 
-    5.6 - Consumindo REST Endpoints com $RESOURCE
+5.6 - Consumindo REST Endpoints com $RESOURCE
     
-            Já temos INJETADO o $RESOURCE em nosso CONTROLLER
+       Já temos INJETADO o $RESOURCE em nosso CONTROLLER
 
-                O AngularJS possui um SERVIÇO de mais alto nível chamado $RESOURCE, específico para consumir REST ENDPOINTS.
+           O AngularJS possui um SERVIÇO de mais alto nível chamado $RESOURCE, específico para consumir REST ENDPOINTS.
 
-                    REFATORAMOS por completo ----> ..public/js/controllers/LayersController.js
+                REFATORAMOS por completo ----> ..public/js/controllers/LayersController.js
 
-                        Criou-se a função -> buscaLayers()
+                    Criou-se a função -> buscaLayers()
 
-                        PRÓXIMO PASSO: IMPLEMENTAR A FUNCIONALIDADE DE REMOÇÃO DO 'LAYERS' DA NOSSA LISTA
-                            1) CRIA-SE A ROTA DE EXCLUSÃO
-                            2) DEPOIS DE CRIADA A ROTA DE EXCLUSÃO, INTEGRÁ-LA COM O ANGULAR.JS
+                PRÓXIMO PASSO: IMPLEMENTAR A FUNCIONALIDADE DE REMOÇÃO DO 'LAYERS' DA NOSSA LISTA
+
+                   1) CRIA-SE A ROTA DE EXCLUSÃO
+                   2) DEPOIS DE CRIADA A ROTA DE EXCLUSÃO, INTEGRÁ-LA COM O ANGULAR.JS
 
 
 Página 101 / 119-381
@@ -1061,35 +1058,32 @@ C:\projetoSere5\config\express.js
 C:\projetoSere5\public\partials\layer.html
 
 
-    CAPÍTULO 5
-    5.7 - Adicionando ROTA DE EXCLUSÃO ao Express
+5.7 - Adicionando ROTA DE EXCLUSÃO ao Express
 
-            Continuando A Usar o Padrão REST
+        Continuando A Usar o Padrão REST
 
-            CRIANDO A ROTA DE EXCLUSÃO DE LAYERS
+        CRIANDO A ROTA DE EXCLUSÃO DE LAYERS
 
-                * Configurando a rota.
+           * Configurando a rota.
 
-                Adiconando a rota ao nosso arquivo de ROTAS referente ao recurso LAYER
+            Adiconando a rota ao nosso arquivo de ROTAS referente ao recurso LAYER
 
-                    ..projetoSere5/app/routes/layer.js
+                ..projetoSere5/app/routes/layer.js
 
-                        * INSERIMOS NO ARQUIVO CRIADO '../../routes/layer.js', A ROTA DE REMOÇÃO
+                    * INSERIMOS NO ARQUIVO CRIADO '../../routes/layer.js', A ROTA DE REMOÇÃO
 
 
-                        OBTENDO O "ID" DO LAYER NO CONTROLLER
+                OBTENDO O "ID" DO LAYER NO CONTROLLER
 
-                            * Depois da rota inserida em '../../routes/layer.js', precisamos cria-lá no controle de layerS.
+                    * Depois da rota inserida em '../../routes/layer.js', precisamos cria-lá no controle de layerS.
 
-                            * Criando a função removeLayer em nosso CONTROLLER -> app/controllers/layer.js
+                    * Criando a função removeLayer em nosso CONTROLLER -> app/controllers/layer.js
 
                 AGORA QUE JÁ TEMOS NOSSA ROTA DE EXCLUSÃO DEVIDAMENTE CONFIGURADA, VAMOS IMPLEMENTAR NO LADO DO CLIENTE A CHAMADA DESTA ROTA ATRAVÉS DO AngularJS
 
 Página 104 / 122-381
 
-    CAPÍTULO 5
-
-       ARQUIVOS ABERTOS:
+ARQUIVOS ABERTOS:
         C:\projetoSere5\public\index.html
         C:\projetoSere5\public\js\main.js
         C:\projetoSere5\public\js\controllers\LayersController.js
@@ -1099,78 +1093,77 @@ Página 104 / 122-381
         C:\projetoSere5\app\routes\layer.js
 
 
-     5.8 - Express: Organizando melhor nossas ROTAS
+5.8 - Express: Organizando melhor nossas ROTAS
 
-           Agora que já temos nossa ROTA de exclusão devidamente configurada, vamos implementar no lado do CLIENTE a chamada desta ROTA através do AngularJS.
+        Agora que já temos nossa ROTA de exclusão devidamente configurada, vamos implementar no lado do CLIENTE a chamada desta ROTA através do AngularJS.
 
-            Refatorando --> app/routes/layer.js
+         Refatorando --> app/routes/layer.js
 
 Página 106 / 124-381
-    CAPÍTULO 5
 
-    5.9 - Removendo layer da lista
+5.9 - Removendo layer da lista
 
-            Implementando a funcionalidade de se excluir um layer da lista.
+        Implementando a funcionalidade de se excluir um layer da lista.
 
-            Agora que adicionamos do lado do SERVIDOR a rota para a exclusão dos LAYERS, precisamos implementar no lado do CLIENTE sua chamada através do Angular ( Framework Front-End sugerido).
+        Agora que adicionamos do lado do SERVIDOR a rota para a exclusão dos LAYERS, precisamos implementar no lado do CLIENTE sua chamada através do Angular ( Framework Front-End sugerido).
 
-            Vamos usar a diretiva do AngularJS 'ng-click'
+        Vamos usar a diretiva do AngularJS 'ng-click'
 
-                1º) Adicionando a diretiva no BOTÃO REMOVER da nossa "partials":
+            1º) Adicionando a diretiva no BOTÃO REMOVER da nossa "partials":
 
-                    /public/partials/layers.html
+                /public/partials/layers.html
 
-                    1.1) Observação: Chamamos uma função 'remove()' que ainda não existe em nosso Controller
+                1.1) Observação: Chamamos uma função 'remove()' que ainda não existe em nosso Controller
 
 
-                2º) Criando a função remove() em nosso CONTROLLER, LayersController --> // public/js/controllers/LayersController.js
+            2º) Criando a função remove() em nosso CONTROLLER, LayersController --> // public/js/controllers/LayersController.js
 
-                        2.1) Observação: Já podemos testar a nova funcionalidade de remoção.
+                2.1) Observação: Já podemos testar a nova funcionalidade de remoção.
 
-                                http://localhost:3000/#/layers
+                        http://localhost:3000/#/layers
 
-                                    OBSERVAÇÃO: o botão de REMOVER está funcionando corretamente.
+                        OBSERVAÇÃO: o botão de REMOVER está funcionando corretamente.
 
 
 Página 	109 / 127-381
 
-    CAPÍTULO 5
 
-    5.10 - As diretivas NG-HIDE e NG-SHOW
+5.10 - As diretivas NG-HIDE e NG-SHOW
 
-            Refatorando o arquivo  ../public/partials/layers.html
+        Refatorando o arquivo  ../public/partials/layers.html
 
 
 Página 	110 / 128-381
-    EXIBINDO AVISOS PARA O USUÁRIO.
 
-        app/public/js/controllers/LayersController.js
+EXIBINDO AVISOS PARA O USUÁRIO.
 
-            Adicionando uma nova propriedade no ESCOPO do Controller:
+    app/public/js/controllers/LayersController.js
 
-                o $scope.mensagem = {texto: ''}
+    Adicionando uma nova propriedade no ESCOPO do Controller:
+
+         o $scope.mensagem = {texto: ''}
 
 
-            Refatorando o arquivo  ../public/partials/layers.html
+    Refatorando o arquivo  ../public/partials/layers.html
 
-                Adicionamos o parágrafo imediatamente após o DIV com a classe JUMBOTRON
+        Adicionamos o parágrafo imediatamente após o DIV com a classe JUMBOTRON
 
-                    ENVIANDO AVISOS PARA OS USUÁRIOS
+            ENVIANDO AVISOS PARA OS USUÁRIOS
 
-                    Refatorando noss CONTROLLER:
+            Refatorando noss CONTROLLER:
 
                          ..projetoSere5\public\js\controllers\LayersController.js
 
 
-                OBSERVAÇÃO: ATÉ AQUI JÁ SABEMOS (listar) e (remover) layerS, E MOSTRAR MENSAGENS PERSONALIZADAS PARA O USUÁRIO.
+            OBSERVAÇÃO: ATÉ AQUI JÁ SABEMOS (listar) e (remover) layerS, E MOSTRAR MENSAGENS PERSONALIZADAS PARA O USUÁRIO.
 
-             PRECISAMOS ADICIONAR MAIS UMA FUNCIONALIDADE EM NOSSO PROJETO: (exibir) o layer SELECIONADO NA LISTA.
+        PRECISAMOS ADICIONAR MAIS UMA FUNCIONALIDADE EM NOSSO PROJETO: (exibir) o layer SELECIONADO NA LISTA.
 
 
 
 Página 112 / 130-381
-    CAPÍTULO 5
-    5.11 - Exibindo Layer Selecionado
+
+5.11 - Exibindo Layer Selecionado
 
            Implementando a funcionalidade de exibição de 'Layer Selecionado' na lista.
 
@@ -1195,6 +1188,7 @@ Página 112 / 130-381
 
 
 Página 115 / 133-381
+    
     ROTAS DO ANGULARJS
 
         Alterando a página principal 'layers.html', adicionando a diretiva 'ng-href' na âncora que contém o nome do layer.
@@ -1214,7 +1208,7 @@ Página 115 / 133-381
 
 Página 116 / 134-381
 
-    LIDANDO COM NOVOS layerS
+    LIDANDO COM NOVOS layers
 
         O Botão 'NOVO layer' ainda não possui a funcionalidade desejada, que seria abrir um 'NOVA JANELA' para a criação de um novo layer, através de um formulário em branco.
 
@@ -1241,7 +1235,7 @@ Página 116 / 134-381
 
 Página 118 / 136-381
 
-    5.12 SALVANDO UM LAYER
+5.12 SALVANDO UM LAYER
 
         A diretiva 'NG-SUBMIT'
 
@@ -1264,7 +1258,7 @@ Página 118 / 136-381
 
 Página 120 / 138-381
     
-    5.13 - ADICIONANDO ROTA DE GRAVAÇÃO AO EXPRESS
+5.13 - ADICIONANDO ROTA DE GRAVAÇÃO AO EXPRESS
 
         Implementando a ROTA que Inclui e Atualiza um layer.
 

@@ -1,4 +1,4 @@
-// C:\estudoMean\cap-07\config
+// C:\projetoSere6\config\express.js
 
 var express = require('express');
 var load = require('express-load');
