@@ -6,7 +6,11 @@
     3)	npm-check-updates -u
     
     4)	npm install	
-    
+
+
+
+
+
 
 M - MongoDB
 E - Express
