@@ -13,7 +13,6 @@ E - Express
 A - Angular
 N - Node
 
-
 ETAPA 1 - INTRODUÇÃO
 
 1.1 - INSTALAÇÃO DO NODE.JS
